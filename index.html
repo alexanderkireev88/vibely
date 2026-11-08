@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7fb">
+  <meta name="description" content="Vibely — делись моментами и будь на связи.">
+  <title>Vibely — твой круг общения</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Vibely — главная"><span class="brand-mark">v</span><span>vibely</span></a>
+    <label class="searchbox"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Поиск публикаций" aria-label="Поиск публикаций"><kbd>⌘ K</kbd></label>
+    <div class="top-actions"><button class="icon-button notification-button" aria-label="Уведомления" title="Уведомления">♧<i></i></button><button class="mini-avatar" aria-label="Ваш профиль">А</button></div>
+  </header>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="side-label">МЕНЮ</div>
+      <nav class="main-nav" aria-label="Основная навигация">
+        <button class="nav-item active" data-filter="all"><span>⌂</span>Лента</button>
+        <button class="nav-item" data-filter="popular"><span>✦</span>Популярное</button>
+        <button class="nav-item" data-filter="saved"><span>▣</span>Сохранённое</button>
+        <button class="nav-item" data-filter="videos"><span>▷</span>Видео</button>
+      </nav>
+      <div class="side-divider"></div>
+      <div class="side-label">ТВОИ ПАПКИ <button id="addFolder" class="tiny-plus" aria-label="Добавить папку">＋</button></div>
+      <div id="folderList" class="folder-list"><button class="folder-item" data-folder="Вдохновение"><span class="folder-dot peach"></span>Вдохновение</button><button class="folder-item" data-folder="Путешествия"><span class="folder-dot purple"></span>Путешествия</button></div>
+      <div class="sidebar-spacer"></div>
+      <button id="ownerPanel" class="owner-card"><span class="owner-icon">✳</span><span><b>Панель владельца</b><small>Управление проектом</small></span><span class="owner-arrow">›</span></button>
+      <div class="side-profile"><div class="avatar avatar-you">А</div><div><b>Александр</b><small>@alexander</small></div><button class="more-button" aria-label="Ещё">···</button></div>
+    </aside>
+
+    <main class="content" id="home">
+      <div class="mobile-heading"><h1>Твоя лента</h1><button class="mobile-compose" id="mobileCompose">＋</button></div>
+      <section class="welcome-banner"><div class="welcome-copy"><span class="eyebrow">ТВОЁ ПРОСТРАНСТВО</span><h1>Моменты, которые<br>хочется <em>разделить.</em></h1><p>Делись тем, что важно. Оставайся рядом с теми, кто важен.</p><button class="primary-button" id="bannerCompose">＋ &nbsp;Создать публикацию</button></div><div class="banner-art" aria-hidden="true"><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-spark">✦</div><div class="art-bubble bubble-one">📸</div><div class="art-bubble bubble-two">♡</div><div class="art-bubble bubble-three">✧</div><div class="art-center">v</div></div></section>
+
+      <section class="stories-section"><div class="section-heading"><div><h2>Истории</h2><p>Моменты на ближайшие 24 часа</p></div><button class="text-button" id="allStories">Все истории <span>→</span></button></div><div class="stories-row" id="storiesRow"><button class="story add-story" id="addStory"><span class="story-ring add-ring"><span>＋</span></span><span>Добавить</span></button></div></section>
+
+      <section class="feed-section"><div class="feed-title"><div><span class="eyebrow">СООБЩЕСТ��О</span><h2 id="feedHeading">Твоя лента</h2></div><button class="sort-button" id="sortButton">Для тебя <span>⌄</span></button></div><div id="feed" class="feed"></div><div id="emptyState" class="empty-state hidden"><div>⌕</div><h3>Пока ничего не найдено</h3><p>Попробуй изменить запрос или загляни в ленту позже.</p><button class="secondary-button" id="resetFeed">Сбросить фильтры</button></div></section>
+      <footer class="footer-note">Vibely <span>·</span> маленькая демо-версия большого общения</footer>
+    </main>
+
+    <aside class="right-rail">
+      <section class="profile-card"><div class="profile-cover"><span class="cover-star">✦</span></div><div class="profile-body"><div class="avatar profile-avatar">А</div><div class="profile-name">Александр К.</div><div class="profile-handle">@alexander</div><p>Собираю моменты и делюсь тем, что вдохновляет ✨</p><div class="profile-stats"><div><b id="postCount">0</b><span>публикаций</span></div><div><b>248</b><span>подписчиков</span></div><div><b>192</b><span>подписки</span></div></div><button class="outline-button" id="editProfile">Редактировать профиль</button></div></section>
+      <section class="suggestions"><div class="rail-heading"><h3>Может быть интересно</h3><button class="more-button" aria-label="Ещё рекомендации">···</button></div><div id="suggestionsList"></div><button class="text-button see-all" id="seePeople">Смотреть всех <span>→</span></button></section>
+      <div class="rail-links"><a href="#about">О Vibely</a><a href="#help">Помощь</a><a href="#privacy">Конфиденциальность</a><span>© 2026 Vibely</span></div>
+    </aside>
+  </div>
+  <nav class="mobile-nav" aria-label="Мобильная навигация"><button class="active" data-filter="all">⌂<small>Лента</small></button><button data-filter="popular">✦<small>Популярное</small></button><button id="mobileNavCompose" class="mobile-nav-plus">＋</button><button data-filter="videos">▷<small>Видео</small></button><button id="mobileProfile">◉<small>Профиль</small></button></nav>
+
+  <div class="modal-backdrop hidden" id="postModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal"><div class="modal-header"><div><span class="eyebrow">ПОДЕЛИСЬ МОМЕНТОМ</span><h2 id="modalTitle">Новая публикация</h2></div><button class="close-button" data-close="postModal" aria-label="Закрыть">×</button></div><form id="postForm"><label class="field-label" for="postText">О чём хочешь рассказать?</label><textarea id="postText" maxlength="1000" placeholder="Напиши что-нибудь хорошее…" rows="4"></textarea><div class="upload-area" id="uploadArea"><input id="mediaInput" type="file" accept="image/*,video/*" multiple hidden><span class="upload-icon">↥</span><b>Добавь фото или видео</b><small>Можно выбрать несколько файлов · до 20 МБ каждый</small><button type="button" class="secondary-button" id="chooseFiles">Выбрать файлы</button><div id="fileNames" class="file-names"></div></div><div class="modal-options"><label class="field-label" for="postFolder">Папка</label><select id="postFolder"><option value="">Без папки</option><option>Вдохновение</option><option>Путешествия</option></select></div><div class="form-hint">Публикации в этой демо-версии сохраняются только в этом браузере.</div><button class="primary-button submit-button" type="submit">Опубликовать <span>→</span></button></form></div></div>
+  <div class="modal-backdrop hidden" id="infoModal" role="dialog" aria-modal="true" aria-labelledby="infoTitle"><div class="modal info-modal"><div class="modal-header"><div><span class="eyebrow">VIBELY</span><h2 id="infoTitle">Панель владельца</h2></div><button class="close-button" data-close="infoModal" aria-label="Закрыть">×</button></div><div id="infoContent"></div></div></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
