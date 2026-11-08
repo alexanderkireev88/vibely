@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f7fb">
+  <title>Панель владельца — Vibely</title><link rel="stylesheet" href="owner.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="index.html"><span class="mark">v</span> vibely <span class="badge">OWNER</span></a><div class="head-actions"><span id="signedInAs" class="muted"></span><button id="signOut" class="button secondary hidden">Выйти</button></div></header>
+  <main class="page">
+    <section id="setupNotice" class="notice hidden"><b>Нужна настройка Supabase.</b><p>Создай проект, выполни SQL-файлы из папки <code>supabase/</code> и заполни <code>supabase-config.js</code>.</p><a href="README.md">Инструкция →</a></section>
+    <section id="loginCard" class="card auth-card hidden"><span class="eyebrow">ЗАЩИЩЁННЫЙ ДОСТУП</span><h1>Вход владельца</h1><p class="muted">Войти могут только аккаунты с ролью owner или admin. Отдельного пароля в коде сайта нет.</p><form id="loginForm"><label>Email<input id="email" type="email" autocomplete="username" required maxlength="254"></label><label>Пароль<input id="password" type="password" autocomplete="current-password" required minlength="8" maxlength="128"></label><button class="button primary">Войти</button></form><p id="loginError" class="error" role="status"></p></section>
+    <section id="deniedCard" class="card auth-card hidden"><span class="eyebrow">ДОСТУП ЗАПРЕЩЁН</span><h1>Нет прав владельца</h1><p class="muted">Аккаунт вошёл, но ему не назначена роль owner/admin. Назначь роль через Supabase SQL Editor по инструкции в README_OWNER.md.</p><button id="deniedSignOut" class="button secondary">Выйти</button></section>
+    <section id="dashboard" class="hidden">
+      <div class="page-heading"><div><span class="eyebrow">VIBELY · УПРАВЛЕНИЕ</span><h1>Панель владельца</h1><p class="muted">Инструменты модерации и базовая статистика.</p></div><button id="reload" class="button secondary">↻ Обновить</button></div>
+      <div class="stats"><article class="card stat"><span>Пользователи</span><b id="userCount">—</b></article><article class="card stat"><span>Публикации</span><b id="postCount">—</b></article><article class="card stat"><span>Жалобы на проверке</span><b id="reportCount">—</b></article></div>
+      <section class="card section"><div class="section-heading"><div><h2>Жалобы</h2><p class="muted">Последние 50 обращений пользователей.</p></div><button id="reportsReload" class="button secondary">Обновить</button></div><div id="reports" class="table-wrap"><p class="muted">Загрузка…</p></div></section>
+      <section class="card section"><div class="section-heading"><div><h2>Последние публикации</h2><p class="muted">Можно скрыть публикацию или удалить её.</p></div><button id="postsReload" class="button secondary">Обновить</button></div><div id="posts" class="table-wrap"><p class="muted">Загрузка…</p></div></section>
+      <section class="card section"><div class="section-heading"><div><h2>Пользователи</h2><p class="muted">Роли здесь только для просмотра. Назначать владельцев можно через SQL Editor.</p></div></div><div id="users" class="table-wrap"><p class="muted">Загрузка…</p></div></section>
+      <p class="footnote">Не передавай секретные ключи или пароли. Панель использует Supabase Auth и RLS; доступ определяется серверной ролью аккаунта.</p>
+    </section>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="owner.js"></script>
+</body></html>
